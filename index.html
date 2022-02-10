@@ -1,0 +1,175 @@
+<html>
+<head>
+    <title>hi.artydev</title>
+    <meta charset="utf-8"/>
+    <!--    Строка для авто=масштаба в телефонах-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="awsm.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(){
+          let btn = document.querySelector('input[type=submit]');
+          // btn.style.backgroundColor = "yellow";
+          btn.addEventListener('click', async function(event){
+              event.preventDefault();
+              let username = document.querySelector('input[name=username]').value;
+              let email = document.querySelector('input[name=email]').value;
+              let about = document.querySelector('textarea[id=about]').value;
+              console.log(username, email, about)
+
+              let response = await fetch("http://0.0.0.0:8000/api/evergreen/test/", {
+              method: "POST",
+              body: `{"username": "${username}", "email": "${email}", "about": "${about}"}`
+              // body: new FormData(document.querySelector('form'))
+              });
+              console.log(response.json());
+              showOutput();
+              // let response_json = await response.json();
+              // // let response_text = await response.text();
+              // console.log('response json is', response_json);
+              // if (response_json.success){
+              //     let body = document.querySelector('body');
+              //     body.style.backgroundColor = "white";
+              //     body.style.display = "block";
+              //     body.innerHTML = response_json.message;
+              // }
+          })
+         }
+      )
+  </script>
+</head>
+
+</head>
+<body>
+    <header>
+    <h1>hi.artydev</h1>
+    <p>Если вы уже занимаете первое место, самый верный способ оставаться первым — имитировать действия тех, кто идет следом за вами.</p>
+    <!-- <p>It makes your <abbr title="HyperText Markup Language is the standard markup language for creating web pages and web applications.">HTML</abbr> beautiful -->
+    </p>
+    <nav>
+        <ul>
+          <li>overview</li>
+          <li><a href="https://vc.ru/u/687439-artur-alyaska" target="_blanc">vc</a></li> 
+          <li><a href="https://artydev.ru/" target="_blanc">artydev</a></li>
+          <li><a href="https://finvestpaper.ru/" target="_blanc">finvestpaper</a></li>
+          <li><a href="https://pulse-monitoring.artydev.ru/" target="_blanc">pulse-monitoring</a></li>
+          <li><a href="https://github.com/meanother/" target="_blank">github</a></li>
+        </ul>
+      </nav>
+    </header>
+</header>
+<main>
+  <article>
+    <h1>Must read</h1>
+    <p>Теория игр. Искусство стратегического мышления в бизнесе и жизни</p>
+    <p>Думай медленно ... решай быстро</p>
+    <p>Look <a href="https://artydev.ru/posts/must-read/">post</a> !</p>
+    
+
+    <section>
+      <!-- <h3><a id="others" href="#others" aria-hidden="true"></a>What about others? -->
+      </h3>
+      <figure><img src="./pic.jpg" alt="pc">
+        <figcaption>Если вам приходится рисковать, в большинстве случаев лучше сделать это как можно скорее.  
+        </figcaption>
+      </figure>
+      <!-- <p><code>div</code> isn't styled because it doesn't have semantic value (as well as <code>span</code> elements which aren't styled either).
+      </p>
+      <aside>
+        <p><strong>N.B.</strong> <a href="http://html5doctor.com/cite-and-blockquote-reloaded/" title="An article on html5doctor.com explains the right way of using quotes in HTML5" target="_blank">cite and blockquote – reloaded</a>
+        </p>
+      </aside>
+      <p>But for example quotes are really nice:</p>
+      <blockquote>
+        <p>See, you not only have to be a good coder to create a system like Linux, you have to be a sneaky bastard too.</p>
+        <footer>— 
+          <cite>Linus Torvalds</cite>
+        </footer>
+      </blockquote>
+      <p>Yeah! They almost have no custom styles :)</p> -->
+    </section>
+
+    <section>
+      <!-- <h2><a id="forms" href="#forms" aria-hidden="true"></a>Forms -->
+      <!-- </h2> -->
+      <script>
+        function showOutput() {
+          document.getElementById('output').style.display = 'block';
+          // document.getElementById('reset').disabled = false;
+        }
+        
+        function hideOutput() {
+          document.getElementById('output').style.display = 'none';
+          document.getElementById('reset').disabled = true;
+        }
+        
+      </script>
+      <form onsubmit="showOutput(); return false;" onreset="hideOutput()" method="POST">
+        <h4>Feedback</h4>
+        <fieldset>
+          <legend>Contact me</legend>
+          <label for="full-name">Full Name</label>
+          <input id="full-name" type="text" value="Elon Reeve Musk" name="username">
+          <!-- <p>Sex<br>
+            <label>
+              <input type="radio" name="sex" checked>Male
+            </label>
+            <label>
+              <input type="radio" name="sex">Female
+            </label>
+          </p> -->
+          <!-- <label for="date">Date of birth</label>
+          <input id="date" type="date" value="1971-06-28"> -->
+          <label for="email">E-mail</label>
+          <input id="email" type="email" value="elon.musk@spacex.com" name="email">
+
+          <!-- <label for="phone">Phone number</label>
+          <input id="phone" type="tel" placeholder="Numbers only, please">
+          <label for="country">Country</label>
+          <select id="country">
+            <option value="china">China</option>
+            <option value="russia">Russia</option>
+            <option value="usa" selected>USA</option>
+          </select> -->
+          <label for="about">Tell us about yourself</label>
+          <textarea id="about" name="about">Never short TSLA</textarea>
+
+          <!-- <label for="photo">Photo</label>
+          <input id="photo" type="file"> -->
+          <!-- <label for="eyes-color">Eyes color <small>(just kidding)</small>
+          </label> -->
+          <!-- <input id="eyes-color" type="color" value="#000000"> -->
+          <!-- <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Use strong password!">
+          <label>
+            <input type="checkbox" checked>I pass my soul to SpaceX.
+          </label><br> -->
+          <input type="submit" value="Submit">
+          <!-- <button id="reset" type="reset" disabled>Reset</button> -->
+          <output id="output" style="display: none">
+            <p>Welcome on board!</p>
+          </output>
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h2><a id="misc" href="#misc" aria-hidden="true"></a>QA
+      </h2>
+      <details>
+        <summary>Show me the magic</summary>
+        <p>If you have ideas / proposals for cooperation - write me in telegram <a href="https://t.me/auinvestme">@auinvestme</a></p>
+        <p>But now you can star the repo, why not? :)</p>
+        <p><a class="github-button" href="https://github.com/meanother/tpulse-py" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star meanother/tpulse-py on GitHub">Star</a></p>
+        <script src="https://buttons.github.io/buttons.js" async defer></script>
+      </details>
+      <noscript>This is an example of noscript but it seems like you'll never see that :)</noscript>
+    </section>
+
+  </article>
+</main>
+<footer>
+  <p>Copyright © 2022 arty.dev</p>
+</footer>
+</body>
+</html>
